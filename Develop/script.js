@@ -1,33 +1,51 @@
-var lowercase =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var Special = []
-
 // Assignment code here
+// Get MVP first 
+// clean up later
 
-var gen =function(){
+var generatePassword =function(){
+ debugger;
 
-var passSize = window.prompt ("How long will the password be ?");
-if (passSize >= 8 && passSize <= 128 ){
-      console.log(passSize) // test
-}
-else{
-  window.alert("password needs to be between 8 - 128 ");
-  gen();
-}
+  var passLen = parseInt(window.prompt ("How long will the password be ?"));
+  if (passLen >= 8 && passLen <= 128 ){
+        console.log(passLen) // testing delete later
+  }
+  else{
+    window.alert("password needs to be between 8 - 128 ");
+    generatePassword();
+  }
 
-
-let isLower = window.confirm("Do you want lowercase?");
-console.log ("lower case, " +isLower);
-let isUpper = window.confirm("Do you want Uppercase?");
-console.log ("upper case, " +isUpper);
-let isSpecial = window.confirm("Do you want Special cases?");
-console.log ("Special case, " +isSpecial);
-
- //clear temp and pass
-let temp = '';
-let password = '';
+  let isLower = window.confirm("Do you want lowercase?");
+  let isUpper = window.confirm("Do you want Uppercase?"); 
+  let isNum = window.confirm("Do you want numerical values?");
+  let isSpecial = window.confirm("Do you want Special cases?");
 
 
+  //clear temp and pass storage
+  let temp = '';
+  let password = '';
+
+  // check 
+  if(isLower){
+    temp += 'abcdefghijklmnopqrstuvwxyz'
+  }
+  if(isUpper){
+    temp += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  }
+  if(isNum){
+    temp += '0123456789'
+  }
+  if(isSpecial){
+    temp += '!@#$%^&*()?'
+  }
+
+  for(let i = 0; i < passLen; i++){
+    // temp [] is now a arry with stored info from above 
+    // loop temp arry by the length of passLen
+    // random number temp arry will get stored into password untill loop stops
+    password += temp[ Math.floor( Math.random() * temp.length)]
+  }
+
+  return password;
 
 }
 
@@ -44,10 +62,7 @@ function writePassword() {
 
 }
 
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-debugger;
-gen();
+// debugger;
