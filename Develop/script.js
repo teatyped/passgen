@@ -36,7 +36,7 @@ var generatePassword =function(){
         for(let i = 0; i < passLen; i++){
           // temp [] is now a arry with stored info from above 
           // loop temp arry by the length of passLen
-          // random number temp arry will get stored into password untill loop stops
+          // random number temp arry will get stored into password until loop stops
           password += temp[ Math.floor( Math.random() * temp.length)]
         }
       
