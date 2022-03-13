@@ -3,7 +3,7 @@
 // clean up later
 
 var generatePassword =function(){
- debugger;
+
 
   let passLen = parseInt(window.prompt ("How long will the password be ?"));
   if (passLen >= 8 && passLen <= 128 ){
